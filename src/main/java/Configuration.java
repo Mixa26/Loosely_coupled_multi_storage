@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Configuration {
-    private int bytes;
+    private long bytes;
     private int files;
     private ArrayList<String> extensions;
 
@@ -11,13 +11,13 @@ public class Configuration {
         this.extensions = new ArrayList<String>();
     }
 
-    public Configuration(int bytes, int files, ArrayList<String> extensions) {
+    public Configuration(long bytes, int files, ArrayList<String> extensions) {
         this.bytes = bytes;
         this.files = files;
         this.extensions = extensions;
     }
 
-    public int getBytes() {
+    public long getBytes() {
         return bytes;
     }
 
@@ -29,7 +29,7 @@ public class Configuration {
         return extensions;
     }
 
-    public void setBytes(int bytes) {
+    public void setBytes(long bytes) {
         this.bytes = bytes;
     }
 
