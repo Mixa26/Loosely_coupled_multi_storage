@@ -5,7 +5,7 @@ public class Configuration {
     private int files;
     private ArrayList<String> extensions;
 
-    private Configuration() {
+    public Configuration() {
         this.bytes = 100;
         this.files = 5;
         this.extensions = new ArrayList<String>();
