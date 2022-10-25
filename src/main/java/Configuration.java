@@ -17,7 +17,7 @@ import java.util.Iterator;
 import static java.lang.Math.toIntExact;
 
 public class Configuration implements Jsonable {
-    private int bytes;
+    private long bytes;
     private int files;
     private ArrayList<String> forbiddenExtensions;
 
@@ -28,7 +28,7 @@ public class Configuration implements Jsonable {
     }
 
 
-    public Configuration( int bytes, int files, ArrayList<String > forbiddenExtensions){
+    public Configuration( long bytes, int files, ArrayList<String > forbiddenExtensions){
         this.bytes = bytes;
         this.files = files;
         this.forbiddenExtensions = forbiddenExtensions;
@@ -75,7 +75,7 @@ public class Configuration implements Jsonable {
             JSONObject obj = (JSONObject) jsonParser.parse(fileText);
             Configuration config = new Configuration();
 
-            config.setBytes(toIntExact((long) obj.get("bytes")));
+            config.setBytes((long) obj.get("bytes"));
             config.setFiles(toIntExact((long) obj.get("files")));
             JSONArray jsonArray = (JSONArray) obj.get("forbiddenExtensions");
 
@@ -93,7 +93,7 @@ public class Configuration implements Jsonable {
         return null;
     }
 
-    public int getBytes() {
+    public long getBytes() {
         return bytes;
     }
 
@@ -105,7 +105,7 @@ public class Configuration implements Jsonable {
         return forbiddenExtensions;
     }
 
-    public void setBytes(int bytes) {
+    public void setBytes(long bytes) {
         this.bytes = bytes;
     }
 
