@@ -7,5 +7,8 @@ public enum StorageErrorType {
     NO_ROOT_PATH,
     NOT_ENOUGH_MEMORY,
     DIR_EXISTS,
+    NO_DIR,
+    NOT_A_DIRECTORY,
+
 
 }

@@ -4,9 +4,8 @@ import java.util.ArrayList;
 public interface Storage {
     boolean createRoot(Configuration configuration);
     boolean createDir(String path, String name);
-    boolean saveFile(String[] pathsFrom, String pathTo);
-    boolean deleteFile(String[] paths);
-    boolean deleteDir(String[] dirs);
+    boolean createFiles(String path, String[] names);
+    boolean delete(String[] paths);
     boolean relocateFiles(String[] paths);
     boolean download(String[] pathsFrom, String pathTo);
     boolean rename(String name);

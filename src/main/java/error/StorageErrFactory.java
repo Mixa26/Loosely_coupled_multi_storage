@@ -16,6 +16,10 @@ public class StorageErrFactory {
                 return new NoRootPathError();
             case NOT_ENOUGH_MEMORY:
                 return new NotEnoughMemoryError();
+            case NO_DIR:
+                return new NoDirectoryError();
+            case NOT_A_DIRECTORY:
+                return new NotDirectoryError();
         }
 
         return null;
