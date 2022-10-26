@@ -9,6 +9,7 @@ public enum StorageErrorType {
     DIR_EXISTS,
     NO_DIR,
     NOT_A_DIRECTORY,
-
+    NO_FILE,
+    FILE_EXISTS
 
 }

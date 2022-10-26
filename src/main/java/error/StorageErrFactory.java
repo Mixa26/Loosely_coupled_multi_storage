@@ -20,6 +20,10 @@ public class StorageErrFactory {
                 return new NoDirectoryError();
             case NOT_A_DIRECTORY:
                 return new NotDirectoryError();
+            case NO_FILE:
+                return new NoFileError();
+            case FILE_EXISTS:
+                return new FileExistsError();
         }
 
         return null;

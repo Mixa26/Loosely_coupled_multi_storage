@@ -6,9 +6,9 @@ public interface Storage {
     boolean createDir(String path, String name);
     boolean createFiles(String path, String[] names);
     boolean delete(String[] paths);
-    boolean relocateFiles(String[] paths);
-    boolean download(String[] pathsFrom, String pathTo);
-    boolean rename(String name);
+    boolean relocateFiles(String[] pathsFrom, String pathTo);
+    boolean download(String pathFrom, String pathTo);
+    boolean rename(String path, String name);
 
     //search
     Metadata searchAllFilesInDir(String dirPath);
