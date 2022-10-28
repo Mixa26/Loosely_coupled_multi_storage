@@ -10,6 +10,6 @@ public class NoDirectoryError implements StorageError {
 
     @Override
     public void handleError() {
-
+        System.out.println("Given directory does not exist!");
     }
 }
