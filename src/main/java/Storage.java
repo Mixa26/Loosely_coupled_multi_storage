@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public interface Storage {
     boolean createRoot(Configuration configuration);
@@ -19,6 +20,6 @@ public interface Storage {
     boolean dirContainsFiles(String path,String[] names);
     File folderContainingFile(String name);
     void sort(SortParamsEnum sortBy,boolean ascending);
-    ArrayList<File> filesCreatedModifiedOnDate(String dirPath);
+    ArrayList<File> filesCreatedModifiedOnDate(Date dateFrom, Date dateTo);
     void filterSearchResult(boolean fullPath, boolean showSize, boolean showDateOfCreation, boolean showDateOfModification);
 }
