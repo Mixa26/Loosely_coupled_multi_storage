@@ -18,7 +18,7 @@ public interface Storage {
     ArrayList<Object> searchFilesByExt(String path, String ext);
     ArrayList<Object> searchFileBySub(String substring);
     boolean dirContainsFiles(String path,String[] names);
-    File folderContainingFile(String name);
+    String folderContainingFile(String name);
     void sort(SortParamsEnum sortBy,boolean ascending);
     ArrayList<Object> filesCreatedModifiedOnDate(Date dateFrom, Date dateTo);
     void filterSearchResult(boolean fullPath, boolean showSize, boolean showDateOfCreation, boolean showDateOfModification);
