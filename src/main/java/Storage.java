@@ -14,9 +14,9 @@ public interface Storage {
     //search
     Metadata searchAllFilesInDir(String dirPath);
     ArrayList<Object> searchAllDirsInDir(String dirPath);
-    ArrayList<File> searchAllFilesInDirs(String dirPath);
-    ArrayList<File> searchFilesByExt(String path, String ext);
-    ArrayList<File> searchFileBySub(String substring);
+    ArrayList<Object> searchAllFilesInDirs(String dirPath);
+    ArrayList<Object> searchFilesByExt(String path, String ext);
+    ArrayList<Object> searchFileBySub(String substring);
     boolean dirContainsFiles(String path,String[] names);
     File folderContainingFile(String name);
     void sort(SortParamsEnum sortBy,boolean ascending);
