@@ -13,7 +13,7 @@ public interface Storage {
 
     //search
     Metadata searchAllFilesInDir(String dirPath);
-    ArrayList<File> searchAllDirsInDir(String dirPath);
+    ArrayList<Object> searchAllDirsInDir(String dirPath);
     ArrayList<File> searchAllFilesInDirs(String dirPath);
     ArrayList<File> searchFilesByExt(String path, String ext);
     ArrayList<File> searchFileBySub(String substring);
@@ -22,4 +22,6 @@ public interface Storage {
     void sort(SortParamsEnum sortBy,boolean ascending);
     ArrayList<File> filesCreatedModifiedOnDate(Date dateFrom, Date dateTo);
     void filterSearchResult(boolean fullPath, boolean showSize, boolean showDateOfCreation, boolean showDateOfModification);
+
+    void printRes(ArrayList<Object> res);
 }

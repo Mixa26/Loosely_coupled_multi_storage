@@ -24,6 +24,10 @@ public class StorageErrFactory {
                 return new NoFileError();
             case FILE_EXISTS:
                 return new FileExistsError();
+            case MAX_FILES:
+                return new MaxFilesError();
+            case INVALID_FILE_EXTENSION:
+                return new InvalidFileExtensions();
         }
 
         return null;

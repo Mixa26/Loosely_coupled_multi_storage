@@ -10,6 +10,8 @@ public enum StorageErrorType {
     NO_DIR,
     NOT_A_DIRECTORY,
     NO_FILE,
-    FILE_EXISTS
+    FILE_EXISTS,
+    MAX_FILES,
+    INVALID_FILE_EXTENSION
 
 }
