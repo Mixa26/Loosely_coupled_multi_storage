@@ -1,14 +1,20 @@
+import customExceptions.BadPathException;
+import customExceptions.FileCreationException;
+import customExceptions.NoRootException;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 
 public interface Storage {
     /**
      * Makes a root repository on the default location
+     * @param path path where to make the root directory
      * @param configuration tells the repository the maximum number of bytes that could be uploaded,
      *                      maximum amount of files and forbidden file extensions
      * @return true if no errors encountered, false if something went wrong
      */
-    boolean createRoot(Configuration configuration);
+    boolean createRoot(String path, Configuration configuration) throws BadPathException;
 
     /**
      * Creates a folder on the provided path, with a provided name
@@ -16,7 +22,7 @@ public interface Storage {
      * @param name of the folder
      * @return true if no errors encountered, false if something went wrong
      */
-    boolean createDir(String path, String name);
+    boolean createDir(String path, String name) throws NoRootException;
 
     /**
      * Creates one or more file's and puts them inside of repository on provided path with provided names
@@ -24,7 +30,7 @@ public interface Storage {
      * @param names name of files to be created inside of repository on provided path
      * @return true if no errors encountered, false if something went wrong
      */
-    boolean createFiles(String path, String[] names);
+    boolean createFiles(String path, String[] names) throws FileCreationException;
 
     /**
      * Deletes folders/files specified by paths
@@ -47,7 +53,7 @@ public interface Storage {
      * @param pathTo the local PC path where the folder/file will be downloaded
      * @return true if no errors encountered, false if something went wrong
      */
-    boolean download(String pathFrom, String pathTo);
+    boolean download(String pathFrom, String pathTo) throws UnsupportedOperationException;
 
     /**
      * Renames a folder/file
@@ -107,7 +113,7 @@ public interface Storage {
      * @param name a name to be searched for in the root directory
      * @return the first name found (if there are multiple) of the folder containing the file
      */
-    String folderContainingFile(String name);
+    String folderContainingFile(String name) throws FileNotFoundException;
 
     /**
      * Sorts the last search result which returned a ArrayList< Object > of files
