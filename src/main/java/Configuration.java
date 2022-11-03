@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Configuration{
+    private String fileName;
     private long bytes;
     private int files;
     private ArrayList<String> forbiddenExtensions;
 
-    public Configuration() {
+    public Configuration(String name) {
+        this.fileName = name;
         this.bytes = 100;
         this.files = 5;
         this.forbiddenExtensions = new ArrayList<>();
     }
 
 
-    public Configuration( long bytes, int files, ArrayList<String > forbiddenExtensions){
+    public Configuration(String name ,long bytes, int files, ArrayList<String > forbiddenExtensions){
+        this.fileName = name;
         this.bytes = bytes;
         this.files = files;
         this.forbiddenExtensions = forbiddenExtensions;
@@ -40,6 +43,10 @@ public class Configuration{
 
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
     public long getBytes() {
         return bytes;
     }
@@ -50,6 +57,10 @@ public class Configuration{
 
     public ArrayList<String> getForbiddenExtensions() {
         return forbiddenExtensions;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public void setBytes(long bytes) {
