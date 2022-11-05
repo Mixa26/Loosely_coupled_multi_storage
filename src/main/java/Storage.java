@@ -8,7 +8,8 @@ import java.util.Date;
 
 public interface Storage {
     /**
-     * Makes a root repository on the default location
+     * Connects to a root repository if it exists, and if not it makes a new one on the specified path with the default name.
+     * Connection to the root repo is based on its default name.
      * @param path path where to make the root directory
      * @param configuration tells the repository the maximum number of bytes that could be uploaded,
      *                      maximum amount of files and forbidden file extensions
@@ -20,9 +21,10 @@ public interface Storage {
      * Creates a folder on the provided path, with a provided name
      * @param path where to make the folder ("" for inside of root, exp. "folder/folder1" will be added to folder1)
      * @param name of the folder
+     * @param configuration limits for the amount of bytes,files and forbidden extensions in this folder
      * @return true if no errors encountered, false if something went wrong
      */
-    boolean createDir(String path, String name) throws NoRootException;
+    boolean createDir(String path, String name, Configuration configuration) throws NoRootException;
 
     /**
      * Creates one or more file's and puts them inside of repository on provided path with provided names
