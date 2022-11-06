@@ -52,6 +52,18 @@ public class Configuration{
         return sb.toString();
     }
 
+    public String toJson() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        String s = mapper.writeValueAsString(this);
+
+        StringBuilder sb = new StringBuilder();
+        //sb.append("{\"arrayList\":");
+        sb.append(s);
+        //sb.append("}");
+        return sb.toString();
+    }
+
     public List<Configuration> fromJson(String json) throws JsonProcessingException, IOException {
         /**
          * Returns a List< Configuration >, USE THIS ONLY WITH A JSON CONTAINING LIST < CONFIGURATION >
