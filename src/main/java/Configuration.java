@@ -20,10 +20,19 @@ public class Configuration{
     private int files;
     @JsonProperty("forbiddenExtension")
     private ArrayList<String> forbiddenExtensions;
+    private String configPath;
 
 
     public Configuration(String name) {
         this.folderName = name;
+        this.bytes = 100;
+        this.files = 5;
+        this.forbiddenExtensions = new ArrayList<>();
+    }
+
+    public Configuration(String name, String path){
+        this.folderName = name;
+        this.configPath = path;
         this.bytes = 100;
         this.files = 5;
         this.forbiddenExtensions = new ArrayList<>();
@@ -34,6 +43,14 @@ public class Configuration{
     }
 
     public Configuration(String name ,long bytes, int files, ArrayList<String > forbiddenExtensions){
+        this.folderName = name;
+        this.bytes = bytes;
+        this.files = files;
+        this.forbiddenExtensions = forbiddenExtensions;
+    }
+
+    public Configuration(String configPath,String name ,long bytes, int files, ArrayList<String > forbiddenExtensions){
+        this.configPath = configPath;
         this.folderName = name;
         this.bytes = bytes;
         this.files = files;
@@ -106,5 +123,24 @@ public class Configuration{
 
     public void setForbiddenExtensions(ArrayList<String> forbiddenExtensions) {
         this.forbiddenExtensions = forbiddenExtensions;
+    }
+
+    public void setConfigPath(String configPath) {
+        this.configPath = configPath;
+    }
+
+    public String getConfigPath() {
+        return configPath;
+    }
+
+    @Override
+    public String toString() {
+        return "Configuration{" +
+                "folderName='" + folderName + '\'' +
+                ", bytes=" + bytes +
+                ", files=" + files +
+                ", forbiddenExtensions=" + forbiddenExtensions +
+                ", configPath='" + configPath + '\'' +
+                '}';
     }
 }
