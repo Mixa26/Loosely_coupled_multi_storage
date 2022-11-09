@@ -1,25 +1,39 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import customExceptions.NoArrayException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class used for tracking limitations on a folder.
+ */
 public class Configuration{
+    /**
+     * The name of the folder to limit.
+     */
     @JsonProperty("folderName")
     private String folderName;
+    /**
+     * The maximum amount of bytes that can be stored to a folder.
+     */
     @JsonProperty("bytes")
     private long bytes;
+    /**
+     * The maximum number of files to be stored in a folder.
+     */
     @JsonProperty("files")
     private int files;
+    /**
+     * Extensions that are forbidden to be stored in this folder exp. "exe".
+     */
     @JsonProperty("forbiddenExtension")
     private ArrayList<String> forbiddenExtensions;
+    /**
+     * A path for the folder to limit
+     */
     private String configPath;
 
 
@@ -57,6 +71,12 @@ public class Configuration{
         this.forbiddenExtensions = forbiddenExtensions;
     }
 
+    /**
+     * A function that writes a Configuration's to Json.
+     * @param arrayList list of configurations to write to json
+     * @return a string of the to write into a .json file
+     * @throws JsonProcessingException a jackson library exception
+     */
     public String toJson(ArrayList<Configuration> arrayList) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -69,6 +89,11 @@ public class Configuration{
         return sb.toString();
     }
 
+    /**
+     * A function that writes a Configuration's to Json.
+     * @return a string of the to write into a .json file
+     * @throws JsonProcessingException a jackson library exception
+     */
     public String toJson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -81,6 +106,13 @@ public class Configuration{
         return sb.toString();
     }
 
+    /**
+     * A function that reads a json format and transforms it into a list of Configuration's.
+     * @param json json string to be transformed into Configuration's
+     * @return A java List of Configuration's.
+     * @throws JsonProcessingException a jackson library exception
+     * @throws IOException input output exception if something goes wrong
+     */
     public List<Configuration> fromJson(String json) throws JsonProcessingException, IOException {
         /**
          * Returns a List< Configuration >, USE THIS ONLY WITH A JSON CONTAINING LIST < CONFIGURATION >

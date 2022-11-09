@@ -9,8 +9,7 @@ import java.util.Date;
 public abstract class Storage {
     private String path;
     /**
-     * Connects to a root repository if it exists, and if not it makes a new one on the specified path with the default name.
-     * Connection to the root repo is based on its default name.
+     * Creates a root on the specified path with a specified configuration(optional)
      * @param path path where to make the root directory
      * @param configuration tells the repository the maximum number of bytes that could be uploaded,
      *                      maximum amount of files and forbidden file extensions
@@ -119,7 +118,7 @@ public abstract class Storage {
     abstract String folderContainingFile(String name) throws FileNotFoundException;
 
     /**
-     * Sorts the last search result which returned a ArrayList< Object > of files
+     * Sorts the last search result which returned a ArrayList of javas Object type of files
      * @param sortBy can sort by name, date of creation or date of modification (provide argument as exp. "SortParamsEnum.NAME")
      * @param ascending true if sort should be ascending, false otherwise (alphabetically, or by date)
      */
